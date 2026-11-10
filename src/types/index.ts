@@ -1,0 +1,55 @@
+export type IconName =
+  | 'plan'
+  | 'budget'
+  | 'task'
+  | 'time'
+  | 'guest'
+  | 'vendor'
+  | 'form'
+  | 'team'
+  | 'chart'
+  | 'spark'
+  | 'check'
+  | 'arrow'
+  | 'chev'
+  | 'building'
+  | 'star'
+  | 'stage'
+  | 'booth'
+  | 'heart'
+  | 'bolt'
+  | 'shield'
+  | 'book'
+  | 'play'
+  | 'help'
+  | 'plug'
+  | 'phone'
+  | 'mail'
+  | 'pin'
+  | 'clock'
+  | 'send'
+
+export type RouteKey = 'signup' | 'login' | 'demo' | 'pricing'
+
+export type ModuleId =
+  | 'budget'
+  | 'vendors'
+  | 'proposals'
+  | 'analytics'
+  | 'planning'
+  | 'tasks'
+  | 'timeline'
+  | 'collab'
+  | 'guests'
+  | 'registration'
+
+export type SolutionId = 'corporate' | 'planners' | 'agencies' | 'conferences' | 'exhibitions'
+
+export type UseCaseId = 'corporate' | 'agencies' | 'community'
+
+export type HubKey = 'budget' | 'suppliers' | 'proposals' | 'expenses' | 'guests' | 'tasks' | 'approvals' | 'reports'
+
+export type Tone = 'default' | 'ok' | 'warn' | 'coral' | 'info'
+
+export type AvatarKey = 'RK' | 'AM' | 'SL' | 'JP' | 'DN' | 'EP'
+

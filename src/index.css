@@ -1,0 +1,136 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/manrope';
+@import '@fontsource-variable/inter';
+
+/* Design tokens: every colour, font, radius and shadow used by the site lives here. */
+@theme {
+  /* Poppins (loaded from Google Fonts in index.html) is the heading face. `font-serif` is the legacy class name for it. */
+  --font-serif: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-heading: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Manrope Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --color-coral: #e95a78;
+  --color-coral-deep: #c93f5e;
+  --color-coral-soft: #fde8ed;
+  --color-coral-light: #ff8fa6;
+  --color-rose: #ff9bb0;
+  --color-ivory: #fcfaf7;
+  --color-paper: #ffffff;
+  --color-sand: #f4efe8;
+  --color-line: #e9e3da;
+  --color-ink: #17203a;
+  --color-muted: #6b7280;
+  --color-navy: #141a2a;
+  --color-navy-2: #1c2438;
+  --color-navy-line: #2a3450;
+  --color-navy-text: #b7bfd3;
+  --color-ok: #1f9d6b;
+  --color-ok-soft: #e3f4ec;
+  --color-ok-ink: #13734d;
+  --color-warn: #c98a12;
+  --color-warn-soft: #fbf0d9;
+  --color-warn-ink: #8a5e07;
+  --color-info: #3b6fd8;
+  --color-info-soft: #e5edfb;
+  --color-info-ink: #2a55b0;
+  --color-violet: #7a5ae0;
+
+  --radius-card: 14px;
+  --radius-card-lg: 22px;
+
+  --shadow-soft: 0 1px 2px rgba(32, 35, 43, 0.05), 0 8px 24px -8px rgba(32, 35, 43, 0.12);
+  --shadow-lift: 0 2px 4px rgba(32, 35, 43, 0.04), 0 30px 60px -20px rgba(32, 35, 43, 0.25);
+
+  /* Desktop navigation switches on at 1080px */
+  --breakpoint-nav: 67.5rem;
+}
+
+/*
+ * Scroll-driven scenes need room to breathe, so each falls back to a plain static layout where its
+ * pin can't run well (short viewports such as phones in landscape) or where the visitor asked for
+ * reduced motion (the GSAP timelines are skipped, so the layout can't depend on them).
+ *   pinned: the horizontal "journey" act: wide enough, tall enough, motion allowed.
+ *   flat:   the "problem" act, which pins at every width: short viewport or reduced motion.
+ * Keep these queries in sync with the matchMedia strings in JourneyScene and ChaosScene.
+ */
+@custom-variant pinned (@media (min-width: 768px) and (min-height: 640px) and (prefers-reduced-motion: no-preference));
+@custom-variant flat {
+  @media (max-height: 639.98px) {
+    @slot;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    @slot;
+  }
+}
+
+@layer base {
+  html {
+    overflow-x: clip;
+    scroll-padding-top: 84px;
+  }
+
+  /* Lenis smooth-scroll hooks */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  button {
+    cursor: pointer;
+    font: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+}
