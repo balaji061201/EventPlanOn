@@ -1,2 +1,1 @@
-# EventPlanOn
-EPO website revamp
+# Epo_Website
